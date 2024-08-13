@@ -1,0 +1,7 @@
+@xp.pistache.api_HostAddress = http://localhost:5265
+
+###
+
+GET http://localhost:5265/api/Management/Product
+Accept: application/json
+
