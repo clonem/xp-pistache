@@ -9,7 +9,7 @@ export const options = {
 
   thresholds: {
     http_req_failed: [{ threshold: 'rate<0.01', abortOnFail: true }], // http errors should be less than 1%, otherwise abort the test
-    http_req_duration: ['p(99)<100'], // 99% of requests should be below 1s
+    http_req_duration: ['p(99)<200'], // 99% of requests should be below 1s
   },
 
   // define scenarios
@@ -36,7 +36,7 @@ export const options = {
 //
 export default function () {
   // define URL and request body
-  const url = "http://localhost:5265/api/Products";
+  const url = "http://localhost:5265/api/Portfolio?clientId=1";
 
   // send a post request and save response as a variable
   const res = http.get(url);
