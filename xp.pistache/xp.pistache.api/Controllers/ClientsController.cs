@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using xp.pistache.core.Application.Clients.CreateClients;
-using xp.pistache.core.Application.Clients.GetClientByID;
 using xp.pistache.core.Application.Clients.GetClients;
 using xp.pistache.core.Application.Products.GetProductByID;
 using xp.pistache.core.Domain.DTOs.Client;

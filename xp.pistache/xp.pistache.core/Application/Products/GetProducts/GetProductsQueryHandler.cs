@@ -1,11 +1,6 @@
-﻿using Dapper;
-using MediatR;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using System.Data;
+﻿using MediatR;
 using xp.pistache.core.Domain.DTOs.Products;
 using xp.pistache.core.Domain.Interfaces;
-using xp.pistache.core.Domain.Model;
 
 namespace xp.pistache.core.Application.Products.GetProducts
 {

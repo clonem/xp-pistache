@@ -15,6 +15,7 @@ namespace xp.pistache.core.Domain.DTOs.Portfolio
         public decimal Price { get; set; }
         public int ProductQuantity { get; set; }
         public string? Status { get; set; }
+        public DateTime DueDate { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }

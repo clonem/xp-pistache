@@ -38,6 +38,7 @@ CREATE TABLE [dbo].[Product](
 	[Description] [varchar](250) NULL,
 	[Price] [decimal](18, 4) NOT NULL,
 	[Status] [varchar](50) NOT NULL,
+	[DueDate] [datetime] NOT NULL,
 	[CreateAt] [datetime] NOT NULL,
 	[UpdatedAt] [datetime] NULL,
  CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
@@ -65,4 +66,29 @@ GO
 
 
 
+
+
+INSERT INTO [dbo].[Client] ([ClientID],[Name],[Email],[CreateAt]) VALUES (1, 'Daemon Moros', 'Daemon.Moros@email.com', GETDATE())
+INSERT INTO [dbo].[Client] ([ClientID],[Name],[Email],[CreateAt]) VALUES (2, 'Cerda Obrador', 'Cerda.Obrador@email.com', GETDATE())
+INSERT INTO [dbo].[Client] ([ClientID],[Name],[Email],[CreateAt]) VALUES (3, 'Sigvard Loesel', 'Sigvard.Loesel@email.com', GETDATE())
+INSERT INTO [dbo].[Client] ([ClientID],[Name],[Email],[CreateAt]) VALUES (4, 'Che Chai', 'Che.Chai@email.com', GETDATE())
+INSERT INTO [dbo].[Client] ([ClientID],[Name],[Email],[CreateAt]) VALUES (5, 'Verner Lacher', 'Verner.Lacher@email.com', GETDATE())
+GO
+
+
+
+INSERT INTO [dbo].[Product] ([ProductID],[Name],[Description],[Price],[Status],[DueDate],[CreateAt]) VALUES (1, 'CDB', 'DESCRIÇÃO CDB', 10.1, 'ENABLE', '2030-01-01', GETDATE())
+INSERT INTO [dbo].[Product] ([ProductID],[Name],[Description],[Price],[Status],[DueDate],[CreateAt]) VALUES (2, 'TESOURO IPCA+', 'DESCRIÇÃO TESOURO DIRETO', 27.3, 'ENABLE', '2030-01-01', GETDATE())
+INSERT INTO [dbo].[Product] ([ProductID],[Name],[Description],[Price],[Status],[DueDate],[CreateAt]) VALUES (3, 'TESOURO PREFIXADO', 'DESCRIÇÃO TESOURO PREFIXADO', 13.1, 'ENABLE', '2030-01-01', GETDATE())
+INSERT INTO [dbo].[Product] ([ProductID],[Name],[Description],[Price],[Status],[DueDate],[CreateAt]) VALUES (4, 'TESOURO SELIC', 'DESCRIÇÃO TESOURO SELIC', 44.2, 'ENABLE', '2030-01-01', GETDATE())
+INSERT INTO [dbo].[Product] ([ProductID],[Name],[Description],[Price],[Status],[DueDate],[CreateAt]) VALUES (5, 'LCI', 'DESCRIÇÃO LCI', 22.15, 'ENABLE', '2024-08-12', GETDATE())
+INSERT INTO [dbo].[Product] ([ProductID],[Name],[Description],[Price],[Status],[DueDate],[CreateAt]) VALUES (6, 'POUPANÇA', 'DESCRIÇÃO POUPANÇA', 77.23, 'DISABLE', '2030-01-01', GETDATE())
+GO
+
+
+
+SELECT * FROM [dbo].[Client]
+SELECT * FROM [dbo].[Product]
+
+GO
 

@@ -1,16 +1,6 @@
-﻿using Dapper;
-using MediatR;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 using xp.pistache.core.Domain.DTOs.Client;
 using xp.pistache.core.Domain.Interfaces;
-using xp.pistache.core.Domain.Model;
 
 namespace xp.pistache.core.Application.Clients.GetClientByID
 {

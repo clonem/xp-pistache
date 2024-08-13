@@ -2,18 +2,18 @@
 using xp.pistache.core.Domain.DTOs.Products;
 using xp.pistache.core.Domain.Interfaces;
 
-namespace xp.pistache.core.Application.Portfolio.BuyProduct
+namespace xp.pistache.core.Application.Portfolio.SellProduct
 {
-    public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, int>
+    public class SellProductCommandHandler : IRequestHandler<SellProductCommand, int>
     {
         private readonly IDbRepository _dbRepository;
 
-        public BuyProductCommandHandler(IDbRepository dbRepository)
+        public SellProductCommandHandler(IDbRepository dbRepository)
         {
             _dbRepository = dbRepository;
         }
 
-        public async Task<int> Handle(BuyProductCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(SellProductCommand request, CancellationToken cancellationToken)
         {
             await BusinessValidation(request);
 
@@ -48,7 +48,7 @@ namespace xp.pistache.core.Application.Portfolio.BuyProduct
             return affected;
         }
 
-        private async Task BusinessValidation(BuyProductCommand request)
+        private async Task BusinessValidation(SellProductCommand request)
         {
             const string sqlProduct = "SELECT * FROM [dbo].[Product] WHERE ProductID = @ProductID";
 
@@ -62,6 +62,16 @@ namespace xp.pistache.core.Application.Portfolio.BuyProduct
             if (productDTO.DueDate < DateTime.Today)
             {
                 throw new BusinessException("overdue product");
+            }
+
+
+            const string sqlQuantity = "SELECT ISNULL(SUM([ProductQuantity]), 0) AS Quantity FROM [dbo].[ClientProductTransaction] WHERE [ClientID] = @ClientID AND [ProductID] = @ProductID";
+
+            var quantity = await _dbRepository.QueryFirstOrDefaultAsync<int>(sqlQuantity, new { ClientID = request.ClientID, ProductID = request.ProductID });
+
+            if (quantity < (request.ProductQuantity * -1))
+            {
+                throw new BusinessException("invalid quantity");
             }
         }
     }

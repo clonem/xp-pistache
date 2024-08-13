@@ -1,10 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using xp.pistache.core.Application.Products.GetProducts;
 using xp.pistache.core.Domain.DTOs.Portfolio;
 using xp.pistache.core.Domain.Interfaces;
 
@@ -22,7 +16,7 @@ namespace xp.pistache.core.Application.Portfolio.GetClientProducts
         public async Task<IEnumerable<ResponseGetClientProductsDTO>> Handle(GetClientProductsQuery request, CancellationToken cancellationToken)
         {
             const string sql = @"SELECT        
-                                    dbo.Product.ProductID, dbo.Product.Name, dbo.Product.Description, 
+                                    dbo.Product.ProductID, dbo.Product.Name, dbo.Product.Description, dbo.Product.DueDate, 
                                     SUM(dbo.ClientProductTransaction.ProductQuantity) AS Quantity, 
                                     SUM(dbo.Product.Price) AS Price
                                 FROM
@@ -31,7 +25,7 @@ namespace xp.pistache.core.Application.Portfolio.GetClientProducts
                                 WHERE
                                     (dbo.ClientProductTransaction.ClientID = @ClientID)
                                 GROUP BY 
-                                    dbo.Product.ProductID, dbo.Product.Name, dbo.Product.Description, dbo.Product.Status";
+                                    dbo.Product.ProductID, dbo.Product.Name, dbo.Product.Description, dbo.Product.DueDate";
 
             var param = new
             {

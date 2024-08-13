@@ -14,7 +14,8 @@ namespace xp.pistache.core.Domain.Model
         public string? Description { get; set; }
         public Decimal Price { get; set; }
         public string? Status { get; set; }
+        public DateTime DueDate { get; set; }
         public DateTime CreateAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using xp.pistache.core.Domain.DTOs;
 
 namespace xp.pistache.core.Application.Products.UpdateProduct
 {

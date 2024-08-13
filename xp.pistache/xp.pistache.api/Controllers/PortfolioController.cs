@@ -1,10 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using xp.pistache.core.Application.Clients.CreateClients;
 using xp.pistache.core.Application.Portfolio.BuyProduct;
 using xp.pistache.core.Application.Portfolio.GetClientProducts;
 using xp.pistache.core.Application.Portfolio.GetPurchaseHistory;
-using xp.pistache.core.Domain.DTOs.Client;
+using xp.pistache.core.Application.Portfolio.SellProduct;
 using xp.pistache.core.Domain.DTOs.Portfolio;
 
 namespace xp.pistache.api.Controllers
@@ -44,6 +43,16 @@ namespace xp.pistache.api.Controllers
         public async Task<ActionResult> PostBuyProduct(RequestBuyProductDTO buyProduct)
         {
             var command = new BuyProductCommand(buyProduct.ClientID, buyProduct.ProductID, buyProduct.ProductName, buyProduct.ProductPrice, buyProduct.ProductQuantity);
+
+            var clientID = await _sender.Send(command);
+
+            return Created();
+        }
+
+        [HttpPost("SellProduct")]
+        public async Task<ActionResult> PostellProduct(RequestBuyProductDTO buyProduct)
+        {
+            var command = new SellProductCommand(buyProduct.ClientID, buyProduct.ProductID, buyProduct.ProductName, buyProduct.ProductPrice, buyProduct.ProductQuantity);
 
             var clientID = await _sender.Send(command);
 

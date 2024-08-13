@@ -1,14 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using xp.pistache.core.Application.Clients.CreateClients;
-using xp.pistache.core.Application.Clients.GetClientByID;
 using xp.pistache.core.Application.Products.CreateProducts;
 using xp.pistache.core.Application.Products.GetProductByID;
 using xp.pistache.core.Application.Products.GetProducts;
 using xp.pistache.core.Application.Products.UpdateProduct;
 using xp.pistache.core.Application.Products.UpdateStatusProduct;
 using xp.pistache.core.Domain.DTOs.Products;
-using xp.pistache.core.Domain.Model;
 
 namespace xp.pistache.api.Controllers
 {

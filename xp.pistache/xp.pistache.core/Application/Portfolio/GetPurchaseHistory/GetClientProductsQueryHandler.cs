@@ -16,7 +16,7 @@ namespace xp.pistache.core.Application.Portfolio.GetPurchaseHistory
         public async Task<IEnumerable<ResponseGetPurchaseHistoryDTO>> Handle(GetPurchaseHistoryQuery request, CancellationToken cancellationToken)
         {
             const string sql = @"SELECT
-                                    dbo.Product.ProductID, dbo.Product.Name, dbo.Product.Description, dbo.Product.Price, dbo.Product.Status, 
+                                    dbo.Product.ProductID, dbo.Product.Name, dbo.Product.Description, dbo.Product.Price, dbo.Product.Status, dbo.Product.DueDate, 
                                     dbo.ClientProductTransaction.ProductQuantity, dbo.ClientProductTransaction.CreateAt
                                 FROM
                                     dbo.ClientProductTransaction INNER JOIN

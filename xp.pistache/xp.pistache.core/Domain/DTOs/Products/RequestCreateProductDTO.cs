@@ -14,5 +14,6 @@ namespace xp.pistache.core.Domain.DTOs.Products
         public string? Description { get; set; }
         public decimal Price { get; set; }
         public required string Status { get; set; }
+        public DateTime DueDate { get; set; }
     }
 }
